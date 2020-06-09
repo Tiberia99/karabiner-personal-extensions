@@ -1,0 +1,139 @@
+{
+  "title": "Mouse Extensions",
+  "rules": [
+    {
+      "description": "Button5 Copy",
+      "manipulators": [
+        {
+          "from": {
+            "pointing_button": "button5"
+          },
+          "to": [
+            {
+              "key_code": "c",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Button4 Paste",
+      "manipulators": [
+        {
+          "from": {
+            "pointing_button": "button4"
+          },
+          "to": [
+            {
+              "key_code": "v",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Button4 No Format Paste",
+      "manipulators": [
+        {
+          "from": {
+            "pointing_button": "button4"
+          },
+          "to": [
+            {
+              "key_code": "v",
+              "modifiers": [
+                "command",
+                "shift"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+
+    {
+      "description": "DoubleClick MouseButton3 (Wheel) to Screenshot Window Select",
+      "manipulators": [
+        {
+          "from": {
+            "pointing_button": "button3"
+          },
+          "to": [
+            {
+              "key_code": "4",
+              "modifiers": [
+                "left_command",
+                "left_shift"
+              ]
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "repeat": false,
+              "key_code": "spacebar"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "button3_pressed",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "from": {
+            "pointing_button": "button3"
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "button3_pressed",
+                "value": 1
+              }
+            },
+            {
+              "pointing_button": "button3"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "button3_pressed",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "button3_pressed",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "button3_pressed",
+              "value": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

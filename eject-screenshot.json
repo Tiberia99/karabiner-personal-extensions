@@ -1,0 +1,81 @@
+{
+  "title": "Maps Eject to Screenshot",
+  "rules": [
+    {
+      "description": "Eject to Full Screenshot",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "consumer_key_code": "eject"
+          },
+          "to": [
+            {
+              "key_code": "3",
+              "modifiers": [
+                "left_command",
+                "left_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Shift + Eject to Select Screenshot",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "consumer_key_code": "eject",
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "4",
+              "modifiers": [
+                "left_command",
+                "left_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "CMD + Eject to Window Screenshot",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "consumer_key_code": "eject",
+            "modifiers": {
+              "mandatory": [
+                "left_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "4",
+              "modifiers": [
+                "left_command",
+                "left_shift"
+              ]
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "repeat": false,
+              "key_code": "spacebar"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
