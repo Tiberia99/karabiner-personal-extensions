@@ -1,0 +1,49 @@
+{
+  "title": "Window Maximize & Full Screen",
+  "rules": [
+    {
+      "description": "Ctrl + Cmd + Up to Maximize Window via F19; Requires setting 'Zoom' to 'F19' in Keyboard Shortcuts > App Shortcuts",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "up_arrow",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f19"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Ctrl + Cmd + Down to Full Screen via F18; Requires setting both 'Enter Full Screen' and 'Exit Full Screen'to 'F18'",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "down_arrow",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f18"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
